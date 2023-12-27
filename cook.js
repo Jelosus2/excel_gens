@@ -7,12 +7,20 @@ const RelicDataInfo = require('./data/ExcelOutput/RelicDataInfo.json');
 const AvatarConfig = require('./data/ExcelOutput/AvatarConfig.json');
 const RelicConfig = require('./data/ExcelOutput/RelicConfig.json');
 const PlayerIcon = require('./data/ExcelOutput/PlayerIcon.json');
+const downloader = require('./lib/download');
 const skillTree = require('./lib/skilltrees');
 const textmaps = require('./lib/textmaps');
 const lib = require('./lib/excels');
 const fs = require('fs');
 
-if (!process.argv.slice(2)[0] || process.argv.slice(2) == '--excels') {
+if (process.argv.slice(2) == '--download-content') {
+  (async () => {
+    await downloader.downloadMeta();
+    await downloader.downloadSkillTree();
+  })().catch(err => {
+    console.error(err);
+});
+} else if (process.argv.slice(2) == '--excels') {
   const icons = lib.icons([AvatarPlayerIcon, PlayerIcon]);
   const characters = lib.characters(AvatarConfig);
   const lightcones = lib.lightcones(EquipmentConfig);
