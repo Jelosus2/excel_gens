@@ -1,5 +1,5 @@
 const RelicSubAffixConfig = require('./data/ExcelOutput/RelicSubAffixConfig.json');
-;const AvatarSkillConfig = require('./data/ExcelOutput/AvatarSkillConfig.json');
+const AvatarSkillConfig = require('./data/ExcelOutput/AvatarSkillConfig.json');
 const AvatarPlayerIcon = require('./data/ExcelOutput/AvatarPlayerIcon.json');
 const AvatarRankConfig = require('./data/ExcelOutput/AvatarRankConfig.json');
 const EquipmentConfig = require('./data/ExcelOutput/EquipmentConfig.json');
