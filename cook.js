@@ -1,4 +1,5 @@
-const AvatarSkillConfig = require('./data/ExcelOutput/AvatarSkillConfig.json');
+const RelicSubAffixConfig = require('./data/ExcelOutput/RelicSubAffixConfig.json');
+;const AvatarSkillConfig = require('./data/ExcelOutput/AvatarSkillConfig.json');
 const AvatarPlayerIcon = require('./data/ExcelOutput/AvatarPlayerIcon.json');
 const AvatarRankConfig = require('./data/ExcelOutput/AvatarRankConfig.json');
 const EquipmentConfig = require('./data/ExcelOutput/EquipmentConfig.json');
@@ -27,6 +28,7 @@ if (process.argv.slice(2) == '--download-content') {
   const relics = lib.relics(RelicConfig, RelicDataInfo, RelicSetConfig);
   const ranks = lib.ranks(AvatarRankConfig);
   const skills = lib.skills(AvatarSkillConfig);
+  const substattypes = lib.substatTypes(RelicSubAffixConfig);
   const skilltrees = skillTree.generate();
   
   [{ fn: 'icons.json', content: icons }, 
@@ -35,6 +37,7 @@ if (process.argv.slice(2) == '--download-content') {
   { fn: 'relics.json', content: relics },
   { fn: 'ranks.json', content: ranks },
   { fn: 'skills.json', content: skills },
+  { fn: 'substattypes.json', content: substattypes },
   { fn: 'skilltree.json', content: skilltrees }]
   .forEach((data) => {
     fs.writeFile(`./dump/${data.fn}`, JSON.stringify(data.content, null, 2), { flag: 'w' }, (err) => {
