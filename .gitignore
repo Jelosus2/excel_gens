@@ -1,6 +1,5 @@
 dump/*
 !dump/types.json
-!dump/meta.json
 
 package-lock.json
 data/**/*.json
