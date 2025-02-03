@@ -1,6 +1,2 @@
 dump/*
-!dump/types.json
-
-package-lock.json
 data/**/*.json
-node_modules
